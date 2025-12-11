@@ -44,6 +44,7 @@ remappings = [
     "erc4626-tests/=dependencies/erc4626-property-tests-1.0/",
     "forge-std/=dependencies/forge-std-1.9.4/src/",
     "permit2/=lib/permit2/",
+    "solmate/=dependencies/solmate-6.2.0/",
 ]
 fs_permissions = [{ access = "read", path = "./scripts/foundry/non-cl/config/" }, { access = "read-write", path = "./scripts/foundry/non-cl/output/" }, { access = "read", path = "./scripts/foundry/cl/core/config/" }, { access = "read-write", path = "./scripts/foundry/cl/core/output/" }, { access = "read", path = "./scripts/foundry/cl/periphery/config/" }, { access = "read-write", path = "./scripts/foundry/cl/periphery/output/" }, { access = "read", path = "./scripts/foundry/cl/universalRouter/config/" }, { access = "read-write", path = "./scripts/foundry/cl/universalRouter/output/" }, { access = "read", path = "./scripts/foundry/cl/gauge/config/" }, { access = "read-write", path = "./scripts/foundry/cl/gauge/output/" }, { access = "read", path = "./scripts/foundry/" }]
 
@@ -57,6 +58,7 @@ runs = 1000
 "@openzeppelin-contracts-upgradeable" = "5.1.0"
 forge-std = "1.9.4"
 erc4626-property-tests = { version = "1.0", git = "https://github.com/a16z/erc4626-tests.git", rev = "8b1d7c2ac248c33c3506b1bff8321758943c5e11" }
+solmate = "6.2.0"
 
 [soldeer]
 remappings_location = "config"

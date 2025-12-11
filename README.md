@@ -1,3 +1,11 @@
+# Install & Build
+
+```sh
+forge soldeer install
+yarn
+forge build
+```
+
 # Ramses
 
 Ramses is a metaDEX built on HyperEVM, powered by x(3,3) and deflationary mechanisms.
