@@ -1,7 +1,7 @@
 # Install & Build
 
 ```sh
-forge install
+forge soldeer install
 yarn
 forge build
 ```

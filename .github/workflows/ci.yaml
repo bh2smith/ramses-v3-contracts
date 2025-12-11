@@ -49,6 +49,8 @@ jobs:
       - name: Show Forge version
         run: forge --version
 
+      - name: Forge Install
+        run: forge soldeer install
       # TODO: Add later
       # This project (wasn't formatted to begin with)
       # - name: Check formatting
