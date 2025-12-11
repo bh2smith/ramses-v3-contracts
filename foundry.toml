@@ -44,6 +44,7 @@ remappings = [
     "erc4626-tests/=dependencies/erc4626-property-tests-1.0/",
     "forge-std/=dependencies/forge-std-1.9.4/src/",
     "permit2/=lib/permit2/",
+    "solmate/=/dependencies/solmate",
 ]
 fs_permissions = [{ access = "read", path = "./scripts/foundry/non-cl/config/" }, { access = "read-write", path = "./scripts/foundry/non-cl/output/" }, { access = "read", path = "./scripts/foundry/cl/core/config/" }, { access = "read-write", path = "./scripts/foundry/cl/core/output/" }, { access = "read", path = "./scripts/foundry/cl/periphery/config/" }, { access = "read-write", path = "./scripts/foundry/cl/periphery/output/" }, { access = "read", path = "./scripts/foundry/cl/universalRouter/config/" }, { access = "read-write", path = "./scripts/foundry/cl/universalRouter/output/" }, { access = "read", path = "./scripts/foundry/cl/gauge/config/" }, { access = "read-write", path = "./scripts/foundry/cl/gauge/output/" }, { access = "read", path = "./scripts/foundry/" }]
 
