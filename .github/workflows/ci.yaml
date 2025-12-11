@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  FOUNDRY_PROFILE: ci
+  NODE_VERSION: '20'
+
+jobs:
+  test:
+    name: Yarn + Forge CI
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive  # needed for dependencies/forge-std & dependencies/solmate
+
+      # --- Node / Yarn setup ---
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: yarn
+
+      - name: Install Yarn
+      # ubuntu-latest usually has yarn, but this makes it explicit & stable
+        run: npm install -g yarn
+
+      - name: Install Node dependencies
+        run: yarn install --frozen-lockfile
+        # This will run the "postinstall" from package.json:
+        #   "postinstall": "test ! -f .env && cp .env.example .env || true"
+
+      # --- Foundry / Forge setup ---
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+          # cache: false  # uncomment if RPC caching causes issues
+
+      - name: Show Forge version
+        run: forge --version
+
+      - name: Check formatting
+        run: forge fmt --check
+
+      - name: Build contracts
+        run: forge build --sizes
+
+      - name: Run Forge tests
+        run: forge test -vvv
+        # If you later add fork tests that rely on SONIC_RPC / SONIC_RPC_TESTNET,
+        # set them as GitHub secrets and expose them here via `env:`.
+
+      # --- Optional: Hardhat tests or scripts via Yarn ---
+      # Uncomment / adapt if you add scripts in package.json:
+      # - name: Run Hardhat tests
+      #   run: yarn hardhat test
